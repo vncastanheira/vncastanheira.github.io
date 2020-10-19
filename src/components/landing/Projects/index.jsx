@@ -11,42 +11,73 @@ export const Projects = () => {
   const {
     github: {
       viewer: {
-        repositories: { edges },
+        pinnedItems: { edges },
       },
     },
   } = useStaticQuery(
+    // graphql`
+    //   {
+    //     github {
+    //       viewer {
+    //         repositories(first: 8, orderBy: { field: STARGAZERS, direction: DESC }) {
+    //           edges {
+    //             node {
+    //               id
+    //               name
+    //               url
+    //               description
+    //               stargazers {
+    //                 totalCount
+    //               }
+    //               forkCount
+    //               languages(first: 3) {
+    //                 nodes {
+    //                   id,
+    //                   name
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // `
     graphql`
-      {
-        github {
-          viewer {
-            repositories(first: 8, orderBy: { field: STARGAZERS, direction: DESC }) {
-              edges {
-                node {
-                  id
-                  name
-                  url
-                  description
-                  stargazers {
-                    totalCount
-                  }
-                  forkCount
-                  languages(first: 3) {
-                    nodes {
-                      id,
-                      name
-                    }
+    {
+      github {
+        viewer {
+          pinnedItems(first: 10) {
+            edges {
+              node {
+                ... on GitHub_Repository {
+                id
+                name
+                url
+                description
+                stargazers {
+                  totalCount
+                }
+                forkCount
+                languages(first: 3) {
+                  nodes {
+                    id
+                    name
                   }
                 }
+              }
               }
             }
           }
         }
       }
+    }
+    
     `
   );
   return (
     <Wrapper as={Container} id="projects">
-      <h2>Projects</h2>
+      <h2>Projetos</h2>
       <Grid>
         {edges.map(({ node }) => (
           <Item key={node.id} as="a" href={node.url} target="_blank" rel="noopener noreferrer" theme={theme}>

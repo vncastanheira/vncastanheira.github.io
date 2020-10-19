@@ -43,7 +43,7 @@
     "start": "gatsby develop -o",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "reset": "rm -rf .cache/ public/",
+    "reset": "del /s /q \".cache\" && del /s /q \"public\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
