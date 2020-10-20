@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import overlayIllustration from 'assets/illustrations/overlay.svg';
 
 export const Wrapper = styled.div`
   padding-bottom: 4rem;
-  background-image: url(${overlayIllustration});
+  
   background-size: contain;
   background-position: right top;
   background-repeat: no-repeat;
 `;
 
 export const IntroWrapper = styled.div`
-  padding: 4rem 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,16 +55,36 @@ export const Details = styled.div`
       font-size: 26pt;
     }
   }
+
+  .techs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch; 
+    margin-bottom: 2.5rem;
+  }
+
+  .techs > * {
+    background-color: #8db0ff;
+    border-radius: 20px;
+    margin: 0 0.8rem;
+    padding: 0.5rem;
+    width: 64px;
+    height: 64px;
+  }
+
 `;
 
 export const Thumbnail = styled.div`
   flex: 1;
 
   @media (max-width: 960px) {
-    width: 100%;
+    width: 0%;
   }
 
   img {
-    width: 100%;
+    width: 80%;
   }
 `;
