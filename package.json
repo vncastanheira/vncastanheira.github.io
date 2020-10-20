@@ -5,6 +5,8 @@
   "version": "0.1.2",
   "author": "Smakosh <ismai23l@hotmail.com>",
   "dependencies": {
+    "@formium/client": "^0.1.1",
+    "@formium/react": "^0.1.1",
     "@hcaptcha/react-hcaptcha": "^0.2.1",
     "axios": "^0.19.2",
     "dotenv": "^6.2.0",
@@ -22,6 +24,7 @@
     "gatsby-plugin-sitemap": "^2.0.3",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.1.35",
+    "gatsby-source-formium": "^0.1.1",
     "gatsby-source-graphql": "^2.1.21",
     "gatsby-transformer-sharp": "^2.2.7",
     "prop-types": "^15.6.2",

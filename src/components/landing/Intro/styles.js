@@ -67,7 +67,7 @@ export const Details = styled.div`
   }
 
   .techs > * {
-    background-color: #8db0ff;
+    background-color: #fff;
     border-radius: 20px;
     margin: 0 0.8rem;
     padding: 0.5rem;

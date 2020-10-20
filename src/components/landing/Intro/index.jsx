@@ -6,7 +6,7 @@ import { Container, Button } from 'components/common';
 import dev from 'assets/illustrations/dev.svg';
 import { Wrapper, IntroWrapper, Details, Thumbnail } from './styles';
 import { FaReact, FaNodeJs } from 'react-icons/fa';
-import {SiMongodb} from 'react-icons/si'
+import {SiMysql} from 'react-icons/si'
 
 export const Intro = () => {
   const { theme } = useContext(ThemeContext);
@@ -25,7 +25,7 @@ export const Intro = () => {
           <div className="techs">
             <FaReact style={{color: "blue"}}/>
             <FaNodeJs style={{color: "green"}}/>
-            <SiMongodb style={{color: "darkgreen"}}/>
+            <SiMysql style={{color: "darkorange"}}/>
           </div>
           <Button as={AnchorLink} href="#contact">
             Me Contrate

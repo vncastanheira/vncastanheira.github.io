@@ -1,4 +1,6 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import { FormiumForm } from '@formium/react';
 import axios from 'axios';
 import { Formik, Form, FastField, ErrorMessage } from 'formik';
 //import Recaptcha from 'react-google-recaptcha';
@@ -6,6 +8,25 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import * as Yup from 'yup';
 import { Button, Input } from 'components/common';
 import { Error, Center, InputField } from './styles';
+
+// const ContactForm = () => (
+//   <StaticQuery query={graphql`
+//   {
+//     formiumForm(id: {eq: "5f8f41d5c3473a000145fae5"}) {
+//       id
+//       name
+//       slug
+//       projectId
+//       schema
+//       createAt
+//       updateAt
+//     }
+//   }`}
+//   render={data => (<FormiumForm data={data.formiumForm} onSubmit={() => console.log('Sent!')} />)}
+//   />
+// )
+
+// export default ContactForm
 
 export default () => (
   <Formik
@@ -33,9 +54,9 @@ export default () => (
             'Content-Type': 'application/json',
           },
           data: JSON.stringify({
-            name,
-            email,
-            message,
+            "contact-name": name,
+            "contact-email": email,
+            "contact-message": message,
           }),
         });
         setSubmitting(false);
