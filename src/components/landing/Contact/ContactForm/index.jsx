@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Formik, Form, FastField, ErrorMessage } from 'formik';
-import Recaptcha from 'react-google-recaptcha';
+//import Recaptcha from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import * as Yup from 'yup';
 import { Button, Input } from 'components/common';
 import { Error, Center, InputField } from './styles';
@@ -16,12 +17,12 @@ export default () => (
       success: false,
     }}
     validationSchema={Yup.object().shape({
-      name: Yup.string().required('Full name field is required'),
+      name: Yup.string().required('Nome completo necessário'),
       email: Yup.string()
-        .email('Invalid email')
-        .required('Email field is required'),
-      message: Yup.string().required('Message field is required'),
-      recaptcha: Yup.string().required('Robots are not welcome yet!'),
+        .email('E-mail inválido')
+        .required('E-mail necessário'),
+      message: Yup.string().required('Mensagem necessária'),
+      recaptcha: Yup.string().required('Solucione o captcha primeiro'),
     })}
     onSubmit={async ({ name, email, message }, { setSubmitting, resetForm, setFieldValue }) => {
       try {
@@ -49,7 +50,7 @@ export default () => (
   >
     {({ values, touched, errors, setFieldValue, isSubmitting }) => (
       <Form>
-        <InputField>
+        { !values.success && (<InputField>
           <Input
             as={FastField}
             type="text"
@@ -60,8 +61,8 @@ export default () => (
             error={touched.name && errors.name}
           />
           <ErrorMessage component={Error} name="name" />
-        </InputField>
-        <InputField>
+        </InputField>)}
+        {!values.success &&(<InputField>
           <Input
             id="email"
             aria-label="email"
@@ -73,8 +74,8 @@ export default () => (
             error={touched.email && errors.email}
           />
           <ErrorMessage component={Error} name="email" />
-        </InputField>
-        <InputField>
+        </InputField>)}
+        {!values.success &&(<InputField>
           <Input
             as={FastField}
             component="textarea"
@@ -87,30 +88,34 @@ export default () => (
             error={touched.message && errors.message}
           />
           <ErrorMessage component={Error} name="message" />
-        </InputField>
-        {values.name && values.email && values.message && (
+        </InputField>)}
+        {!values.success && (
           <InputField>
             <FastField
-              component={Recaptcha}
-              sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
+              component={HCaptcha}
+              sitekey={process.env.GATSBY_PORTFOLIO_CAPTCHA_KEY}
               name="recaptcha"
+              onVerify={value => setFieldValue('recaptcha', value)}
               onChange={value => setFieldValue('recaptcha', value)}
             />
             <ErrorMessage component={Error} name="recaptcha" />
           </InputField>
         )}
+        
         {values.success && (
           <InputField>
             <Center>
-              <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
+              <h4>Sua mensagem foi enviada, entrarei em contato o mais rápido possível!</h4>
             </Center>
           </InputField>
         )}
-        <Center>
-          <Button secondary type="submit" disabled={isSubmitting}>
-            Submit
-          </Button>
-        </Center>
+        {!values.success && (
+          <Center>
+            <Button secondary type="submit" disabled={isSubmitting}>
+              Enviar
+            </Button>
+          </Center>
+        )}
       </Form>
     )}
   </Formik>

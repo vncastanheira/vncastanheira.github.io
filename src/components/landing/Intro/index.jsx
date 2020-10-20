@@ -28,7 +28,7 @@ export const Intro = () => {
             <SiMongodb style={{color: "darkgreen"}}/>
           </div>
           <Button as={AnchorLink} href="#contact">
-            Hire me
+            Me Contrate
           </Button>
         </Details>
 
