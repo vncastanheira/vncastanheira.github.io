@@ -264,9 +264,9 @@ a:hover {
 .navbar ul li a:hover::after {
   content: "";
   position: absolute;
-  bottom: 3px;
-  left: 5px;
-  height: 6px;
+  bottom: -2px;
+  left: 2px;
+  height: 4px;
   opacity: 0.45;
   background-color: gray;
   width: 89%;
@@ -279,9 +279,9 @@ a:hover {
 .navbar ul li.active a::after {
   content: "";
   position: absolute;
-  bottom: 3px;
-  left: 5px;
-  height: 6px;
+  bottom: -2px;
+  left: 2px;
+  height: 4px;
   opacity: 0.55;
   background-color: gray;
   width: 89%;
