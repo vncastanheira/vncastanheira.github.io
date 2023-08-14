@@ -188,7 +188,6 @@ a:hover {
   color: var(--color-text-base);
   font-size: 1.5rem;
   line-height: 21px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
 }
 
 .post-item .title {
@@ -238,7 +237,6 @@ a:hover {
   font-size: 1.6rem;
   color: var(--color-text-a);
   margin-bottom: 20px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
 }
 
 .navbar {
@@ -696,4 +694,11 @@ a:hover {
   font-size: 1rem;
   line-height: 1rem;
   white-space: nowrap;
+}
+
+.icon-search {
+  width: 16px;
+  height: 16px;
+  display: block;
+  color: var(--color-text-a);
 }
