@@ -1017,29 +1017,6 @@ figure .pin-copy {
   color: var(--color-text-a) !important;
 }
 
-/* light scheme */
-:root[color-mode="light"] {
-  --bg-body: #FFFFFF;
-  --color-text-base: #666;
-  --color-text-a: #666;
-  --color-text-a-hover: #000000;
-  --color-text-a-active: #000000;
-  --color-text-sub: #8e8e8e;
-  --color-text-md-title: #24292e;
-  --color-text-md-content: #24292e;
-  --color-text-md-code: #e96900;
-  --bg-text-md-code: #f8f8f8;
-  --bg-block-md-quote: #EEEEEE;
-  --color-block-md-quote: #555555;
-  --color-divider-md-border: #5858581a;
-  --bg-content-search: rgb(255 255 255 / 60%);
-  --bg-block-md-pre: #e6e6e6;
-  --color-text-md-pre: #555555;
-  --bg-block-md-table: #ffffff;
-  --bg-block-md-table-2: #f6f8fa;
-  --color-border-md-table: #dfe2e5;
-}
-
 /* dark scheme */
 :root[color-mode="dark"] {
   --bg-body: #2E3440;
@@ -1050,8 +1027,8 @@ figure .pin-copy {
   --color-text-sub: #8e8e8e;
   --color-text-md-title: #eceff4;
   --color-text-md-content: #eceff4;
-  --color-text-md-code: #e96900;
-  --bg-text-md-code: #3b4252;
+  --color-text-md-code: #032f62;
+  --bg-text-md-code: #f6f9ff;
   --bg-block-md-quote: #3a4252;
   --color-block-md-quote: #abb9cf;
   --color-divider-md-border: #ffffff4f;
