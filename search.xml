@@ -14,7 +14,13 @@
       
         <tags>
             
-            <tag> winget,scoop,chocolatey,windows </tag>
+            <tag> winget </tag>
+            
+            <tag> scoop </tag>
+            
+            <tag> chocolatey </tag>
+            
+            <tag> windows </tag>
             
         </tags>
       
